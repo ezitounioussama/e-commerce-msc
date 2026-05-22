@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'motion'
+import { motion } from 'motion/react'
+import Hero from '../components/Hero'
+import ProductCard from '../components/ProductCard'
 
 const features = [
   {
@@ -40,15 +42,6 @@ const features = [
   },
 ]
 
-const products = [
-  { id: 1, name: 'Wireless Headphones', price: '$79.99', image: 'https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg' },
-  { id: 2, name: 'Smart Watch', price: '$199.99', image: 'https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg' },
-  { id: 3, name: 'Laptop Stand', price: '$49.99', image: 'https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg' },
-  { id: 4, name: 'Bluetooth Speaker', price: '$39.99', image: 'https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg' },
-  { id: 5, name: 'USB-C Hub', price: '$34.99', image: 'https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg' },
-  { id: 6, name: 'Mechanical Keyboard', price: '$129.99', image: 'https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg' },
-]
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -66,62 +59,10 @@ const itemVariants = {
   },
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
-  },
-}
-
 export default function Landing() {
   return (
     <div>
-      <motion.section
-        className="bg-gradient-to-br from-racing-red-600 to-racing-red-800"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="mx-auto max-w-7xl px-4 py-24 text-center">
-          <motion.h1
-            className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-          >
-            Welcome to ShopMSC
-          </motion.h1>
-          <motion.p
-            className="mx-auto mt-6 max-w-2xl text-lg text-racing-red-100"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-          >
-            Discover amazing products at unbeatable prices. Start shopping today!
-          </motion.p>
-          <motion.div
-            className="mt-10 flex items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
-          >
-            <Link
-              to="/products"
-              className="rounded-md bg-white px-6 py-3 text-sm font-semibold text-racing-red-600 shadow-sm transition-colors hover:bg-racing-red-50"
-            >
-              Shop Now
-            </Link>
-            <Link
-              to="/contact"
-              className="rounded-md border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Learn More
-            </Link>
-          </motion.div>
-        </div>
-      </motion.section>
+      <Hero />
 
       <motion.section
         className="bg-white py-16"
@@ -167,37 +108,8 @@ export default function Landing() {
           >
             Featured Products
           </motion.h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <motion.div
-                key={product.id}
-                className="overflow-hidden rounded-xl border border-gray-200 bg-white"
-                variants={cardVariants}
-                whileHover={{
-                  y: -6,
-                  boxShadow: '0 12px 24px rgba(230, 25, 25, 0.15)',
-                  borderColor: 'rgba(230, 25, 25, 0.3)',
-                  transition: { duration: 0.25, ease: 'easeOut' },
-                }}
-              >
-                <div className="aspect-[4/3] bg-gray-100 p-8 flex items-center justify-center">
-                  <img src={product.image} alt={product.name} className="max-h-full w-full object-contain" />
-                </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-semibold text-gray-900">{product.name}</h3>
-                  <p className="mt-1 text-xl font-bold text-racing-red-500">{product.price}</p>
-                  <motion.button
-                    type="button"
-                    className="mt-4 w-full rounded-md bg-racing-red-500 px-4 py-2 text-sm font-medium text-white"
-                    whileHover={{ backgroundColor: '#b81414', scale: 1.02 }}
-                    whileTap={{ scale: 0.97 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    Add to Cart
-                  </motion.button>
-                </div>
-              </motion.div>
-            ))}
+          <div className="mt-12">
+            <ProductCard />
           </div>
         </div>
       </motion.section>
