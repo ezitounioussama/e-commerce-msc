@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-racing-red-50: #fce8e8;
+  --color-racing-red-100: #fad1d1;
+  --color-racing-red-200: #f5a3a3;
+  --color-racing-red-300: #f07575;
+  --color-racing-red-400: #eb4747;
+  --color-racing-red-500: #e61919;
+  --color-racing-red-600: #b81414;
+  --color-racing-red-700: #8a0f0f;
+  --color-racing-red-800: #5c0a0a;
+  --color-racing-red-900: #2e0505;
+  --color-racing-red-950: #200404;
+}
