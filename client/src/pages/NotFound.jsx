@@ -36,7 +36,7 @@ export default function NotFound() {
       >
         <Link
           to="/"
-          className="group mt-10 flex items-center gap-1 rounded-full bg-racing-red-500 px-7 py-2.5 font-medium text-white transition-all hover:bg-racing-red-600 active:scale-95"
+          className="group mt-10 flex items-center gap-1 rounded-md bg-racing-red-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
         >
           Back to Home
           <svg className="transition group-hover:translate-x-0.5" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

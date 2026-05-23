@@ -43,14 +43,14 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
           >
             <a
-              className="inline-block rounded border border-racing-red-500 bg-racing-red-500 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
+              className="inline-block rounded-md bg-racing-red-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
               href="#"
             >
               Get Started
             </a>
 
             <a
-              className="inline-block rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900"
+              className="inline-block rounded-md border border-racing-red-500 px-5 py-2.5 text-sm font-medium text-racing-red-500 shadow-sm transition-colors hover:bg-racing-red-500 hover:text-white"
               href="#"
             >
               Learn More

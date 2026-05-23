@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import Hero from '../components/Hero'
-import ProductCard from '../components/ProductCard'
+import products from '../data/products'
+import ProductCardItem from '../components/ProductCardItem'
+
+const bestsellers = products.slice(0, 3)
 
 const features = [
   {
@@ -106,10 +109,20 @@ export default function Landing() {
             className="text-center text-3xl font-bold tracking-tight text-gray-900"
             variants={itemVariants}
           >
-            Featured Products
+            Bestsellers
           </motion.h2>
-          <div className="mt-12">
-            <ProductCard />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {bestsellers.map((product) => (
+              <ProductCardItem key={product.id} product={product} />
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              to="/products"
+              className="inline-block rounded-md bg-racing-red-500 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
+            >
+              View All Products
+            </Link>
           </div>
         </div>
       </motion.section>
@@ -137,13 +150,13 @@ export default function Landing() {
             <div className="mt-8 flex items-center justify-center gap-4">
               <Link
                 to="/products"
-                className="rounded-md bg-white px-6 py-3 text-sm font-semibold text-racing-red-600 shadow-sm transition-colors hover:bg-racing-red-50"
+                className="rounded-md bg-white px-5 py-2.5 text-sm font-medium text-racing-red-600 shadow-sm transition-colors hover:bg-racing-red-50"
               >
                 Get Started
               </Link>
               <Link
                 to="/contact"
-                className="rounded-md border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                className="rounded-md border border-white/30 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
               >
                 Contact Us
               </Link>

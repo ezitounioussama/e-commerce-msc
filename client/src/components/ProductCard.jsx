@@ -1,4 +1,5 @@
 import { motion } from 'motion/react'
+import GImage from 'gotodev-image-optimizer'
 
 const products = [
   {
@@ -72,7 +73,7 @@ export default function ProductCard() {
           }}
         >
           <div className="relative">
-            <img
+            <GImage
               alt={product.name}
               src={product.image}
               className="h-56 w-full rounded-md object-cover"
@@ -140,7 +141,7 @@ export default function ProductCard() {
 
             <motion.button
               type="button"
-              className="mt-5 w-full rounded-md bg-racing-red-500 px-4 py-2 text-sm font-medium text-white"
+              className="mt-5 w-full rounded-md bg-racing-red-500 px-4 py-2 text-sm font-medium text-white shadow-sm"
               whileHover={{ backgroundColor: '#b81414', scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2 }}

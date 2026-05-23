@@ -34,7 +34,7 @@ export default function Footer() {
 
           <a
             href="#"
-            className="mt-8 inline-block rounded-full border border-racing-red-500 px-12 py-3 text-sm font-medium text-racing-red-500 hover:bg-racing-red-500 hover:text-white transition-colors"
+            className="mt-8 inline-block rounded-md border border-racing-red-500 px-5 py-2.5 text-sm font-medium text-racing-red-500 shadow-sm transition-colors hover:bg-racing-red-500 hover:text-white"
           >
             Get Started
           </a>

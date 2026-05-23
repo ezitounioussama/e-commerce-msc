@@ -44,7 +44,7 @@ export default function Navbar() {
             <div className="sm:flex sm:gap-3">
               <Link
                 to="/login"
-                className="rounded-md bg-racing-red-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
+                className="rounded-md border border-racing-red-500 px-5 py-2.5 text-sm font-medium text-racing-red-500 shadow-sm transition-colors hover:bg-racing-red-500 hover:text-white"
               >
                 Login
               </Link>
@@ -52,7 +52,7 @@ export default function Navbar() {
               <div className="hidden sm:flex">
                 <Link
                   to="/register"
-                  className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-racing-red-500 transition-colors hover:bg-gray-200"
+                  className="rounded-md bg-racing-red-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
                 >
                   Register
                 </Link>
