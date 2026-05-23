@@ -1,4 +1,4 @@
 allowBuilds:
   sharp: true
 minimumReleaseAgeExclude:
-  - gotodev-image-optimizer@0.1.4
+  - vite-image-react@0.2.3
