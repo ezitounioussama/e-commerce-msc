@@ -1,6 +1,7 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
-import products from '../data/products'
 import ProductCardItem from '../components/ProductCardItem'
+import { fetchProducts } from '../lib/api'
 import { useTranslation } from '../hooks/useTranslation'
 
 const containerVariants = {
@@ -13,6 +14,16 @@ const containerVariants = {
 
 export default function Products() {
   const { t } = useTranslation()
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetchProducts()
+      .then(setProducts)
+      .catch(console.error)
+      .finally(() => setLoading(false))
+  }, [])
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-800/50">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -26,16 +37,20 @@ export default function Products() {
           <p className="mt-2 text-gray-500 dark:text-gray-300">{t('products.subtitle')}</p>
         </motion.div>
 
-        <motion.div
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {products.map((product) => (
-            <ProductCardItem key={product.id} product={product} />
-          ))}
-        </motion.div>
+        {loading ? (
+          <p className="text-center text-sm text-gray-400">Loading...</p>
+        ) : (
+          <motion.div
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {products.map((product) => (
+              <ProductCardItem key={product._id || product.id} product={product} />
+            ))}
+          </motion.div>
+        )}
       </div>
     </div>
   )

@@ -1,12 +1,11 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import Hero from '../components/Hero'
-import products from '../data/products'
 import ProductCardItem from '../components/ProductCardItem'
 import BackgroundLines from '../components/BackgroundLines'
+import { fetchProducts } from '../lib/api'
 import { useTranslation } from '../hooks/useTranslation'
-
-const bestsellers = products.slice(0, 3)
 
 const features = [
   {
@@ -66,6 +65,13 @@ const itemVariants = {
 
 export default function Landing() {
   const { t } = useTranslation()
+  const [bestsellers, setBestsellers] = useState([])
+
+  useEffect(() => {
+    fetchProducts()
+      .then((products) => setBestsellers(products.slice(0, 3)))
+      .catch(console.error)
+  }, [])
 
   return (
     <div>
@@ -88,7 +94,7 @@ export default function Landing() {
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feat) => (
               <motion.div
-                key={feat.title}
+                key={feat.titleKey}
                 className="text-center"
                 variants={itemVariants}
               >
@@ -101,35 +107,37 @@ export default function Landing() {
         </div>
       </motion.section>
 
-      <motion.section
-        className="bg-gray-50 dark:bg-gray-800/50 py-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        variants={containerVariants}
-      >
-        <div className="mx-auto max-w-7xl px-4">
-          <motion.h2
-            className="text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white"
-            variants={itemVariants}
-          >
-            {t('landing.bestsellers')}
-          </motion.h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {bestsellers.map((product) => (
-              <ProductCardItem key={product.id} product={product} />
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link
-              to="/products"
-              className="inline-block rounded-md bg-racing-red-500 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
+      {bestsellers.length > 0 && (
+        <motion.section
+          className="bg-gray-50 dark:bg-gray-800/50 py-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={containerVariants}
+        >
+          <div className="mx-auto max-w-7xl px-4">
+            <motion.h2
+              className="text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white"
+              variants={itemVariants}
             >
-              {t('landing.view_all_products')}
-            </Link>
+              {t('landing.bestsellers')}
+            </motion.h2>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {bestsellers.map((product) => (
+                <ProductCardItem key={product._id || product.id} product={product} />
+              ))}
+            </div>
+            <div className="mt-10 text-center">
+              <Link
+                to="/products"
+                className="inline-block rounded-md bg-racing-red-500 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
+              >
+                {t('landing.view_all_products')}
+              </Link>
+            </div>
           </div>
-        </div>
-      </motion.section>
+        </motion.section>
+      )}
 
       <BackgroundLines className="py-16">
         <motion.div
