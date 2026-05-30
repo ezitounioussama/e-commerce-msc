@@ -1,7 +1,10 @@
 import { motion } from 'motion/react'
 import GImage from 'vite-image-react'
+import { useCart } from '../hooks/useCart'
 
 export default function ProductCardItem({ product }) {
+  const { addItem } = useCart()
+
   return (
     <motion.div
       className="group cursor-pointer overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-md"
@@ -62,6 +65,7 @@ export default function ProductCardItem({ product }) {
             {product.price}
           </motion.span>
           <motion.button
+            onClick={() => addItem(product)}
             className="cursor-pointer rounded-md bg-racing-red-500 px-4 py-2 text-sm font-medium text-white shadow-sm"
             whileHover={{ backgroundColor: '#b81414', scale: 1.05, boxShadow: '0 4px 12px rgba(230,25,25,0.4)' }}
             whileTap={{ scale: 0.95 }}

@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
+import { IconShoppingCart } from '@tabler/icons-react'
 import AnimatedThemeToggler from './AnimatedThemeToggler'
 import LanguageSwitcher from './LanguageSwitcher'
+import { useCart } from '../hooks/useCart'
 import { useTranslation } from '../hooks/useTranslation'
 
 const navLinks = [
@@ -11,8 +13,9 @@ const navLinks = [
   { to: '/contact', labelKey: 'contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ onCartOpen }) {
   const { t } = useTranslation()
+  const { itemCount } = useCart()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -46,6 +49,18 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <LanguageSwitcher />
             <AnimatedThemeToggler className="rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800" />
+            <button
+              onClick={onCartOpen}
+              className="relative rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+              aria-label="Open cart"
+            >
+              <IconShoppingCart size={22} />
+              {itemCount > 0 && (
+                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-racing-red-500 text-[10px] font-bold text-white">
+                  {itemCount > 9 ? '9+' : itemCount}
+                </span>
+              )}
+            </button>
             <div className="sm:flex sm:gap-3">
               <Link
                 to="/login"
@@ -112,6 +127,7 @@ export default function Navbar() {
           </motion.nav>
         )}
       </AnimatePresence>
+
     </header>
   )
 }
