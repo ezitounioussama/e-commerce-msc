@@ -2,14 +2,17 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
 import AnimatedThemeToggler from './AnimatedThemeToggler'
+import LanguageSwitcher from './LanguageSwitcher'
+import { useTranslation } from '../hooks/useTranslation'
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/products', label: 'Products' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/', labelKey: 'home' },
+  { to: '/products', labelKey: 'products' },
+  { to: '/contact', labelKey: 'contact' },
 ]
 
 export default function Navbar() {
+  const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -33,21 +36,22 @@ export default function Navbar() {
                     to={link.to}
                     className="text-gray-500 transition hover:text-racing-red-500 dark:text-gray-300 dark:hover:text-racing-red-400"
                   >
-                    {link.label}
+                    {t(`nav.${link.labelKey}`)}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
             <AnimatedThemeToggler className="rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800" />
             <div className="sm:flex sm:gap-3">
               <Link
                 to="/login"
                 className="rounded-md border border-racing-red-500 px-5 py-2.5 text-sm font-medium text-racing-red-500 shadow-sm transition-colors hover:bg-racing-red-500 hover:text-white"
               >
-                Login
+                {t('nav.login')}
               </Link>
 
               <div className="hidden sm:flex">
@@ -55,7 +59,7 @@ export default function Navbar() {
                   to="/register"
                   className="rounded-md bg-racing-red-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
                 >
-                  Register
+                  {t('nav.register')}
                 </Link>
               </div>
             </div>
@@ -64,7 +68,7 @@ export default function Navbar() {
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-racing-red-500 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-racing-red-400"
-                aria-label="Toggle navigation"
+                aria-label={t('nav.toggle_navigation')}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   {menuOpen ? (
@@ -95,7 +99,7 @@ export default function Navbar() {
                 className="block rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-racing-red-50 hover:text-racing-red-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-racing-red-400"
                 onClick={() => setMenuOpen(false)}
               >
-                {link.label}
+                {t(`nav.${link.labelKey}`)}
               </Link>
             ))}
             <Link
@@ -103,7 +107,7 @@ export default function Navbar() {
               className="mt-2 block rounded-md bg-racing-red-500 px-3 py-2 text-sm font-medium text-white text-center"
               onClick={() => setMenuOpen(false)}
             >
-              Login
+              {t('nav.login')}
             </Link>
           </motion.nav>
         )}

@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "products": "Produits",
+    "contact": "Contact",
+    "login": "Connexion",
+    "register": "Inscription",
+    "toggle_navigation": "Basculer la navigation"
+  },
+  "hero": {
+    "title": "Comprenez le flux utilisateur et",
+    "title_highlight": "augmentez",
+    "title_suffix": "les conversions",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi. Natus, provident accusamus impedit minima harum corporis iusto.",
+    "get_started": "Commencer",
+    "learn_more": "En savoir plus"
+  },
+  "landing": {
+    "why_choose_us": "Pourquoi Nous Choisir",
+    "bestsellers": "Meilleures Ventes",
+    "view_all_products": "Voir tous les produits",
+    "ready_to_shop": "Prêt à faire vos achats ?",
+    "cta_text": "Rejoignez des milliers de clients satisfaits et recevez des offres exclusives dans votre boîte de réception.",
+    "get_started": "Commencer",
+    "contact_us": "Nous contacter"
+  },
+  "features": {
+    "free_shipping": "Livraison Gratuite",
+    "free_shipping_desc": "Livraison gratuite sur toutes les commandes de plus de 50€. Rapide et fiable.",
+    "support": "Support 24/7",
+    "support_desc": "Notre équipe est là pour vous aider à tout moment, partout.",
+    "secure_payments": "Paiements Sécurisés",
+    "secure_payments_desc": "Vos informations de paiement sont toujours cryptées et protégées.",
+    "easy_returns": "Retours Faciles",
+    "easy_returns_desc": "Pas satisfait ? Retournez tout article sous 30 jours pour un remboursement complet."
+  },
+  "products": {
+    "title": "Nos Produits",
+    "subtitle": "Choisissez votre style, choisissez votre couleur"
+  },
+  "footer": {
+    "customize_title": "Personnalisez Votre Produit",
+    "customize_desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum maiores ipsum eos temporibus ea nihil.",
+    "get_started": "Commencer",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Cookies"
+  },
+  "common": {
+    "loading": "Chargement..."
+  }
+}

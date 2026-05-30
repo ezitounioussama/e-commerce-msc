@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import products from '../data/products'
 import ProductCardItem from '../components/ProductCardItem'
+import { useTranslation } from '../hooks/useTranslation'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -11,6 +12,7 @@ const containerVariants = {
 }
 
 export default function Products() {
+  const { t } = useTranslation()
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-800/50">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -20,8 +22,8 @@ export default function Products() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Our Products</h1>
-          <p className="mt-2 text-gray-500 dark:text-gray-300">Choose your style, pick your color</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">{t('products.title')}</h1>
+          <p className="mt-2 text-gray-500 dark:text-gray-300">{t('products.subtitle')}</p>
         </motion.div>
 
         <motion.div

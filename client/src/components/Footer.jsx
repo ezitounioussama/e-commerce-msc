@@ -1,6 +1,9 @@
 import { motion } from 'motion/react'
+import { useTranslation } from '../hooks/useTranslation'
 
 export default function Footer() {
+  const { t } = useTranslation()
+
   return (
     <motion.footer
       className="bg-white dark:bg-gray-900"
@@ -24,19 +27,18 @@ export default function Footer() {
           }}
         >
           <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-5xl">
-            Customise Your Product
+            {t('footer.customize_title')}
           </h2>
 
           <p className="mx-auto mt-4 max-w-sm text-gray-500 dark:text-gray-300">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum maiores ipsum eos
-            temporibus ea nihil.
+            {t('footer.customize_desc')}
           </p>
 
           <a
             href="#"
             className="mt-8 inline-block rounded-md border border-racing-red-500 px-5 py-2.5 text-sm font-medium text-racing-red-500 shadow-sm transition-colors hover:bg-racing-red-500 hover:text-white"
           >
-            Get Started
+            {t('footer.get_started')}
           </a>
         </motion.div>
 
@@ -49,13 +51,13 @@ export default function Footer() {
         >
           <ul className="flex flex-wrap justify-center gap-4 text-xs lg:justify-end">
             <li>
-              <a href="#" className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"> Terms &amp; Conditions </a>
+              <a href="#" className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"> {t('footer.terms')} </a>
             </li>
             <li>
-              <a href="#" className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"> Privacy Policy </a>
+              <a href="#" className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"> {t('footer.privacy')} </a>
             </li>
             <li>
-              <a href="#" className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"> Cookies </a>
+              <a href="#" className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"> {t('footer.cookies')} </a>
             </li>
           </ul>
 

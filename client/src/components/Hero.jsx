@@ -1,6 +1,9 @@
 import { motion } from 'motion/react'
+import { useTranslation } from '../hooks/useTranslation'
 
 export default function Hero() {
+  const { t } = useTranslation()
+
   return (
     <motion.section
       className="bg-white dark:bg-gray-900 lg:grid lg:h-screen lg:place-content-center"
@@ -21,9 +24,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
           >
-            Understand user flow and
-            <strong className="text-racing-red-500"> increase </strong>
-            conversions
+            {t('hero.title')}
+            <strong className="text-racing-red-500"> {t('hero.title_highlight')} </strong>
+            {t('hero.title_suffix')}
           </motion.h1>
 
           <motion.p
@@ -32,8 +35,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi. Natus, provident
-            accusamus impedit minima harum corporis iusto.
+            {t('hero.subtitle')}
           </motion.p>
 
           <motion.div
@@ -46,14 +48,14 @@ export default function Hero() {
               className="inline-block rounded-md bg-racing-red-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-racing-red-600"
               href="#"
             >
-              Get Started
+              {t('hero.get_started')}
             </a>
 
             <a
               className="inline-block rounded-md border border-racing-red-500 px-5 py-2.5 text-sm font-medium text-racing-red-500 shadow-sm transition-colors hover:bg-racing-red-500 hover:text-white"
               href="#"
             >
-              Learn More
+              {t('hero.learn_more')}
             </a>
           </motion.div>
         </motion.div>

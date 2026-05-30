@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "toggle_navigation": "Toggle navigation"
+  },
+  "hero": {
+    "title": "Understand user flow and",
+    "title_highlight": "increase",
+    "title_suffix": "conversions",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi. Natus, provident accusamus impedit minima harum corporis iusto.",
+    "get_started": "Get Started",
+    "learn_more": "Learn More"
+  },
+  "landing": {
+    "why_choose_us": "Why Choose Us",
+    "bestsellers": "Bestsellers",
+    "view_all_products": "View All Products",
+    "ready_to_shop": "Ready to Start Shopping?",
+    "cta_text": "Join thousands of happy customers and get exclusive deals delivered to your inbox.",
+    "get_started": "Get Started",
+    "contact_us": "Contact Us"
+  },
+  "features": {
+    "free_shipping": "Free Shipping",
+    "free_shipping_desc": "Free shipping on all orders over $50. Fast and reliable delivery.",
+    "support": "24/7 Support",
+    "support_desc": "Our team is here to help you anytime, anywhere.",
+    "secure_payments": "Secure Payments",
+    "secure_payments_desc": "Your payment information is always encrypted and protected.",
+    "easy_returns": "Easy Returns",
+    "easy_returns_desc": "Not satisfied? Return any item within 30 days for a full refund."
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Choose your style, pick your color"
+  },
+  "footer": {
+    "customize_title": "Customise Your Product",
+    "customize_desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum maiores ipsum eos temporibus ea nihil.",
+    "get_started": "Get Started",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookies"
+  },
+  "common": {
+    "loading": "Loading..."
+  }
+}

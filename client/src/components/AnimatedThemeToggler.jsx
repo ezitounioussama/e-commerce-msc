@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import { flushSync } from 'react-dom'
 import { cn } from '../lib/utils'
 import { useTheme } from '../hooks/useTheme'
+import { useTranslation } from '../hooks/useTranslation'
 
 function getRevealValues(el) {
   const { top, left, width, height } = el.getBoundingClientRect()
@@ -44,6 +45,7 @@ async function animateThemeToggle(button, toggleTheme) {
 
 export default function AnimatedThemeToggler({ className }) {
   const { isDark, toggleTheme } = useTheme()
+  const { t: _t } = useTranslation()
   const buttonRef = useRef(null)
 
   return (
