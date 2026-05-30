@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
+import AnimatedThemeToggler from './AnimatedThemeToggler'
 
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/products', label: 'Products' },
-  { to: '/cart', label: 'Cart' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -13,7 +13,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur supports-backdrop-filter:bg-white/90">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur supports-backdrop-filter:bg-white/90 dark:bg-gray-900/90 dark:text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
@@ -31,7 +31,7 @@ export default function Navbar() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-gray-500 transition hover:text-racing-red-500"
+                    className="text-gray-500 transition hover:text-racing-red-500 dark:text-gray-300 dark:hover:text-racing-red-400"
                   >
                     {link.label}
                   </Link>
@@ -41,6 +41,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4">
+            <AnimatedThemeToggler className="rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800" />
             <div className="sm:flex sm:gap-3">
               <Link
                 to="/login"
@@ -62,7 +63,7 @@ export default function Navbar() {
             <div className="block md:hidden">
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-racing-red-500"
+                className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-racing-red-500 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-racing-red-400"
                 aria-label="Toggle navigation"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -81,7 +82,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.nav
-            className="border-t border-gray-200 bg-white px-4 pb-4 pt-2 md:hidden"
+            className="border-t border-gray-200 bg-white px-4 pb-4 pt-2 md:hidden dark:border-gray-700 dark:bg-gray-900"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -91,7 +92,7 @@ export default function Navbar() {
               <Link
                 key={link.to}
                 to={link.to}
-                className="block rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-racing-red-50 hover:text-racing-red-600"
+                className="block rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-racing-red-50 hover:text-racing-red-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-racing-red-400"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}

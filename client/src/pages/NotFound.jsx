@@ -21,7 +21,7 @@ export default function NotFound() {
       />
 
       <motion.p
-        className="max-w-lg text-center text-gray-500 md:text-xl"
+        className="max-w-lg text-center text-gray-500 dark:text-gray-300 md:text-xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.35 }}

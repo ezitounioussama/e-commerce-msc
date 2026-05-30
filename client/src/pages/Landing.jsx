@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import Hero from '../components/Hero'
 import products from '../data/products'
 import ProductCardItem from '../components/ProductCardItem'
+import BackgroundLines from '../components/BackgroundLines'
 
 const bestsellers = products.slice(0, 3)
 
@@ -68,7 +69,7 @@ export default function Landing() {
       <Hero />
 
       <motion.section
-        className="bg-white py-16"
+        className="bg-white dark:bg-gray-900 py-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
@@ -76,7 +77,7 @@ export default function Landing() {
       >
         <div className="mx-auto max-w-7xl px-4">
           <motion.h2
-            className="text-center text-3xl font-bold tracking-tight text-gray-900"
+            className="text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white"
             variants={itemVariants}
           >
             Why Choose Us
@@ -89,8 +90,8 @@ export default function Landing() {
                 variants={itemVariants}
               >
                 <div className="flex justify-center">{feat.icon}</div>
-                <h3 className="mt-4 text-lg font-semibold text-gray-900">{feat.title}</h3>
-                <p className="mt-2 text-sm text-gray-500">{feat.description}</p>
+                <h3 className="mt-4 text-lg font-semibold text-gray-900 dark:text-white">{feat.title}</h3>
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">{feat.description}</p>
               </motion.div>
             ))}
           </div>
@@ -98,7 +99,7 @@ export default function Landing() {
       </motion.section>
 
       <motion.section
-        className="bg-gray-50 py-16"
+        className="bg-gray-50 dark:bg-gray-800/50 py-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
@@ -106,7 +107,7 @@ export default function Landing() {
       >
         <div className="mx-auto max-w-7xl px-4">
           <motion.h2
-            className="text-center text-3xl font-bold tracking-tight text-gray-900"
+            className="text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white"
             variants={itemVariants}
           >
             Bestsellers
@@ -127,14 +128,14 @@ export default function Landing() {
         </div>
       </motion.section>
 
-      <motion.section
-        className="bg-white py-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-      >
-        <div className="mx-auto max-w-7xl px-4">
+      <BackgroundLines className="py-16">
+        <motion.div
+          className="mx-auto max-w-7xl px-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <motion.div
             className="rounded-2xl bg-gradient-to-br from-racing-red-600 to-racing-red-900 px-8 py-12 text-center sm:px-16"
             variants={itemVariants}
@@ -150,7 +151,7 @@ export default function Landing() {
             <div className="mt-8 flex items-center justify-center gap-4">
               <Link
                 to="/products"
-                className="rounded-md bg-white px-5 py-2.5 text-sm font-medium text-racing-red-600 shadow-sm transition-colors hover:bg-racing-red-50"
+                className="rounded-md bg-white dark:bg-gray-800 px-5 py-2.5 text-sm font-medium text-racing-red-600 shadow-sm transition-colors hover:bg-racing-red-50 dark:hover:bg-gray-700"
               >
                 Get Started
               </Link>
@@ -162,8 +163,8 @@ export default function Landing() {
               </Link>
             </div>
           </motion.div>
-        </div>
-      </motion.section>
+        </motion.div>
+      </BackgroundLines>
     </div>
   )
 }
