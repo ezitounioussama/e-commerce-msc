@@ -68,8 +68,8 @@ export default function Landing() {
   const [bestsellers, setBestsellers] = useState([])
 
   useEffect(() => {
-    fetchProducts()
-      .then((products) => setBestsellers(products.slice(0, 3)))
+    fetchProducts({ limit: 3 })
+      .then((data) => setBestsellers(data.products))
       .catch(console.error)
   }, [])
 

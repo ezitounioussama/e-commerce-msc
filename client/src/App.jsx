@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './layouts/RootLayout'
 import Landing from './pages/Landing'
 import Products from './pages/Products'
+import ProductDetail from './pages/ProductDetail'
 import NotFound from './pages/NotFound'
 import ErrorBoundary from './components/ErrorBoundary'
 
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Landing /> },
       { path: '/products', element: <Products /> },
+      { path: '/products/:id', element: <ProductDetail /> },
       { path: '*', element: <NotFound /> },
     ],
   },
