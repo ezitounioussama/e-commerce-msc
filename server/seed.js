@@ -9,6 +9,13 @@ async function seed() {
     await mongoose.connect(process.env.MONGODB_URI)
     console.log('[seed] Connected to MongoDB')
 
+    const count = await Product.countDocuments()
+    if (count > 0) {
+      console.log(`[seed] ${count} products already exist, skipping`)
+      await mongoose.disconnect()
+      return
+    }
+
     const res = await fetch(FAKE_STORE_URL)
     const data = await res.json()
 
@@ -22,7 +29,6 @@ async function seed() {
       colors: [],
     }))
 
-    await Product.deleteMany({})
     await Product.insertMany(products)
     console.log(`[seed] Inserted ${products.length} products`)
     await mongoose.disconnect()

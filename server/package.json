@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "dev": "node --watch server.js",
     "seed": "node seed.js",
     "seed:admin": "node seedAdmin.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,13 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.2.2",
-      "onFail": "download"
-    }
-  },
+  "packageManager": "pnpm@11.5.0",
   "type": "module",
   "dependencies": {
     "bcrypt": "^6.0.0",
