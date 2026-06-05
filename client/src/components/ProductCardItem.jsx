@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import GImage from 'vite-image-react'
 import { useCart } from '../hooks/useCart'
+import { formatPrice } from '../lib/utils'
 
 export default function ProductCardItem({ product }) {
   const { addItem } = useCart()
@@ -64,7 +65,7 @@ export default function ProductCardItem({ product }) {
               className="text-xl font-bold text-racing-red-500"
               whileHover={{ scale: 1.05 }}
             >
-              {product.price}
+              {formatPrice(product.price)}
             </motion.span>
           </div>
         </motion.div>

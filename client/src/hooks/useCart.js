@@ -1,8 +1,5 @@
 import useCartStore from '../store/useCartStore'
-
-function parsePrice(price) {
-  return parseFloat(price.replace(/[^0-9.]/g, ''))
-}
+import { formatPrice } from '../lib/utils'
 
 export function useCart() {
   const items = useCartStore((s) => s.items)
@@ -13,14 +10,9 @@ export function useCart() {
 
   const itemCount = items.length
 
-  const subtotal = items.reduce((sum, i) => {
-    const price = parsePrice(i.price)
-    return sum + price * i.quantity
-  }, 0)
+  const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0)
 
   const isEmpty = items.length === 0
-
-  const formatPrice = (value) => `$${value.toFixed(2)}`
 
   return {
     items,

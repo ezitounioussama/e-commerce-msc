@@ -14,9 +14,9 @@ async function seed() {
 
     const products = data.map((p) => ({
       name: p.title,
-      price: `$${p.price}`,
-      rating: String(p.rating.rate),
-      reviews: String(p.rating.count),
+      price: p.price,
+      rating: p.rating.rate,
+      reviews: p.rating.count,
       badge: null,
       image: p.image,
       colors: [],

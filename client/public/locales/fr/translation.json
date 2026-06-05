@@ -5,6 +5,7 @@
     "contact": "Contact",
     "login": "Connexion",
     "register": "Inscription",
+    "admin": "Admin",
     "toggle_navigation": "Basculer la navigation"
   },
   "hero": {

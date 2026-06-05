@@ -7,10 +7,13 @@ import LanguageSwitcher from './LanguageSwitcher'
 import { useCart } from '../hooks/useCart'
 import { useTranslation } from '../hooks/useTranslation'
 
+const isAdmin = () => !!localStorage.getItem('admin_token')
+
 const navLinks = [
   { to: '/', labelKey: 'home' },
   { to: '/products', labelKey: 'products' },
   { to: '/contact', labelKey: 'contact' },
+  { to: '/admin', labelKey: 'admin' },
 ]
 
 export default function Navbar({ onCartOpen }) {
@@ -36,7 +39,7 @@ export default function Navbar({ onCartOpen }) {
               {navLinks.map((link) => (
                 <li key={link.to}>
                   <Link
-                    to={link.to}
+                    to={link.labelKey === 'admin' && !isAdmin() ? '/admin/login' : link.to}
                     className="text-gray-500 transition hover:text-racing-red-500 dark:text-gray-300 dark:hover:text-racing-red-400"
                   >
                     {t(`nav.${link.labelKey}`)}
@@ -110,7 +113,7 @@ export default function Navbar({ onCartOpen }) {
             {navLinks.map((link) => (
               <Link
                 key={link.to}
-                to={link.to}
+                to={link.labelKey === 'admin' && !isAdmin() ? '/admin/login' : link.to}
                 className="block rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-racing-red-50 hover:text-racing-red-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-racing-red-400"
                 onClick={() => setMenuOpen(false)}
               >

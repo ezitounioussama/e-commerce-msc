@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { fetchProductById } from '../lib/api'
 import { useCart } from '../hooks/useCart'
+import { formatPrice } from '../lib/utils'
 
 export default function ProductDetail() {
   const { id } = useParams()
@@ -78,7 +79,7 @@ export default function ProductDetail() {
               <span>({product.reviews} reviews)</span>
             </div>
 
-            <p className="mt-6 text-4xl font-bold text-racing-red-500">{product.price}</p>
+            <p className="mt-6 text-4xl font-bold text-racing-red-500">{formatPrice(product.price)}</p>
 
             <motion.button
               onClick={() => addItem(product)}

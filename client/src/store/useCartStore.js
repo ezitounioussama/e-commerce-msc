@@ -7,11 +7,11 @@ const useCartStore = create(
       items: [],
       addItem: (product) =>
         set((state) => {
-          const existing = state.items.find((item) => item.id === product.id)
+          const existing = state.items.find((item) => item._id === product._id)
           if (existing) {
             return {
               items: state.items.map((item) =>
-                item.id === product.id
+                item._id === product._id
                   ? { ...item, quantity: item.quantity + 1 }
                   : item,
               ),
@@ -21,22 +21,22 @@ const useCartStore = create(
         }),
       removeItem: (id) =>
         set((state) => ({
-          items: state.items.filter((item) => item.id !== id),
+          items: state.items.filter((item) => item._id !== id),
         })),
       updateQuantity: (id, quantity) =>
         set((state) => {
           if (quantity <= 0) {
-            return { items: state.items.filter((item) => item.id !== id) }
+            return { items: state.items.filter((item) => item._id !== id) }
           }
           return {
             items: state.items.map((item) =>
-              item.id === id ? { ...item, quantity } : item,
+              item._id === id ? { ...item, quantity } : item,
             ),
           }
         }),
       clearCart: () => set({ items: [] }),
     }),
-    { name: 'ecommerce-cart' },
+    { name: 'ecommerce-cart-v2' },
   ),
 )
 

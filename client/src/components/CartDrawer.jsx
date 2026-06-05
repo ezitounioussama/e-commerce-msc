@@ -78,7 +78,7 @@ export default function CartDrawer({ open, onClose }) {
                   <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                     {items.map((item) => (
                       <motion.li
-                        key={item.id}
+                        key={item._id}
                         layout
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -95,7 +95,7 @@ export default function CartDrawer({ open, onClose }) {
                           <div className="flex items-start justify-between gap-2">
                             <h3 className="truncate text-sm font-medium text-gray-900 dark:text-white">{item.name}</h3>
                             <button
-                              onClick={() => removeItem(item.id)}
+                              onClick={() => removeItem(item._id)}
                               className="shrink-0 rounded p-1 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-900/20"
                               aria-label={`Remove ${item.name}`}
                             >
@@ -103,11 +103,11 @@ export default function CartDrawer({ open, onClose }) {
                             </button>
                           </div>
 
-                          <p className="text-sm font-semibold text-gray-900 dark:text-white">{item.price}</p>
+                          <p className="text-sm font-semibold text-gray-900 dark:text-white">{formatPrice(item.price)}</p>
 
                           <div className="flex items-center gap-2">
                             <button
-                              onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                              onClick={() => updateQuantity(item._id, item.quantity - 1)}
                               className="flex size-7 items-center justify-center rounded border border-gray-300 text-gray-600 transition-colors hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                               aria-label="Decrease quantity"
                             >
@@ -119,11 +119,11 @@ export default function CartDrawer({ open, onClose }) {
                               type="number"
                               min={1}
                               value={item.quantity}
-                              onChange={(e) => handleQuantity(item.id, e.target.value)}
+                              onChange={(e) => handleQuantity(item._id, e.target.value)}
                               className="w-10 rounded border border-gray-300 bg-white py-1 text-center text-xs tabular-nums text-gray-900 focus:border-racing-red-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white [&::-webkit-inner-spin-button]:appearance-none"
                             />
                             <button
-                              onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                              onClick={() => updateQuantity(item._id, item.quantity + 1)}
                               className="flex size-7 items-center justify-center rounded border border-gray-300 text-gray-600 transition-colors hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                               aria-label="Increase quantity"
                             >
